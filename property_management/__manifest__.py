@@ -36,6 +36,7 @@
     'data': [
         'security/ir.model.access.csv',
         "views/property_management.xml",
+        "reports/propert_report_template.xml"
     ],
     'demo': [
     ],
