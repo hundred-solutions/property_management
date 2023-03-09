@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="property_management_pdf_template">
+        <t t-call="web.basic_layout" >
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <h1 style="text-align:center;"><t t-esc="o.name"/> property report</h1>
+                    <br/>
+                    <ol>
+                    <t t-foreach="o.member_ids" t-as="m">
+                        <li>
+                        <h4 ><t t-esc="m.name"/></h4>
+                        <ol>
+                            <t t-foreach="m.given_materials_line_ids" t-as="g" >
+                            <li><t t-esc="g.name.name"/></li>
+                                <br/>
+                            </t>
+                        </ol>
+                        </li>
+                    <br/>
+                    </t>
+                    </ol>
+                </t>
+            </div>
+        </t>
+    </template>
+    <record id="property_management_report" model="ir.actions.report">
+        <field name="name">Property management report</field>
+        <field name="model">hr.department</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">property_management.property_management_pdf_template</field>
+        <field name="report_file">property_management.property_management_pdf_template</field>
+        <field name="print_report_name">'Property Management report'</field>
+        <field name="binding_model_id" ref="hr.model_hr_department"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
