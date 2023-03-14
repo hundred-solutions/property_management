@@ -35,8 +35,11 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        "reports/report.xml",
         "views/property_management.xml",
-        "reports/propert_report_template.xml"
+        "reports/propert_report_template.xml",
+        'wizard/property_report_wizard.xml',
+
     ],
     'demo': [
     ],
